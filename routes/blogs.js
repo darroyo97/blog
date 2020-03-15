@@ -6,3 +6,4 @@ router.get('/blogs', (req, res) => {
 });
 
 module.exports = router;
+
