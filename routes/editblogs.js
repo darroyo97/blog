@@ -21,4 +21,27 @@ router.get('/editblogs', (req, res) => {
       console.log("error in category query", error);
     })
 });
+
+router.post('/editblogs', (req, res) => {
+
+  let title = req.body.title;
+  let authorID = req.body.author;
+  let category = req.body.category;
+  let body = req.body.body;
+
+  let date = "2020-03-15";
+
+  db.none("INSERT INTO blogs (title, author_id, category_id, body, date_pub) VALUES ($1, $2, $3, $4, $5)",
+    [title, authorID, category, body, date])
+    .then(() => {
+      res.redirect('/')
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+
+
+
+})
+
 module.exports = router;
