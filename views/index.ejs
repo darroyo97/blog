@@ -8,7 +8,11 @@
 </head>
 
 <body>
-  HOmepage
+  Blogs Homepage
+  <% blogs.forEach((blogObj)=>{ %>
+  <a href="/blogs/<%= blogObj.id %>"><%= blogObj.title %></a>
+  <% }) %>
 </body>
 
 </html>
+JavaScript101
